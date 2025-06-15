@@ -1,0 +1,6 @@
+public abstract interface annotation class com/github/speak2me/kcp/tracing/annotations/Tracing : java/lang/annotation/Annotation {
+	public abstract fun parameter ()Z
+	public abstract fun return ()Z
+	public abstract fun thread ()Z
+}
+
