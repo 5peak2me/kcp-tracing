@@ -1,6 +1,7 @@
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
+    includeBuild("..")
     repositories {
         google()
         gradlePluginPortal()
@@ -26,5 +27,3 @@ dependencyResolutionManagement {
 rootProject.name = "sample"
 include(":androidApp")
 include(":shared")
-
-includeBuild("..")

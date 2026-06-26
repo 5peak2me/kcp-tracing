@@ -22,5 +22,4 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":annotations")
 
-//include(":gradle-plugin")
 include(":compiler-plugin")
