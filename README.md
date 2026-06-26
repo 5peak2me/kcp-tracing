@@ -8,6 +8,12 @@
 
 Add the plugin to each Kotlin, Android, or Kotlin Multiplatform module that should be traced.
 
+## Output
+
+Annotated functions log entry, exit, duration, thread, source location, parameters, and return values.
+
+![kcp-tracing logcat output](assets/logcat.png)
+
 ## Installation
 
 You can add this plugin to your top-level build script using the following configuration:
