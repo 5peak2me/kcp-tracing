@@ -26,7 +26,7 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - run: ./gradlew build --continue
 
-      - uses: mikepenz/action-junit-report@v5
+      - uses: mikepenz/action-junit-report@v6
         if: success() || failure()
         with:
             report_paths: '**/build/test-results/test/TEST-*.xml'
