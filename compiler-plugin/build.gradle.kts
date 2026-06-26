@@ -32,7 +32,7 @@ gradlePlugin {
   vcsUrl.set("https://github.com/5peak2me/kcp-tracing")
   plugins {
     register("SimplePlugin") {
-      id = group.toString()
+      id = "io.github.5peak2me.kcp.tracing"
       displayName = "TracingGradlePlugin"
       description = "This is the description of TracingGradlePlugin"
       implementationClass = "com.github.speak2me.kcp.tracing.gradle.TracingGradlePlugin"

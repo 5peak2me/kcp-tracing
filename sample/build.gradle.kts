@@ -5,5 +5,5 @@ plugins {
     alias(libs.plugins.kotlin.android).apply(false)
     alias(libs.plugins.kotlin.multiplatform).apply(false)
     alias(libs.plugins.kotlin.compose.compiler).apply(false)
-    id("com.github.5peak2me.kcp.tracing") apply false
+    id("io.github.5peak2me.kcp.tracing") apply false
 }

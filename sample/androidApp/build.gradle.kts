@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose.compiler)
-    id("com.github.5peak2me.kcp.tracing")
+    id("io.github.5peak2me.kcp.tracing")
 }
 
 tracing {
