@@ -58,7 +58,6 @@ internal fun IrPluginContext.threadNameFunc() =
 internal inline val IrPluginContext.typeAnyNullable get() = irBuiltIns.anyNType
 internal inline val IrPluginContext.typeThrowable get() = irBuiltIns.throwableType
 internal inline val IrPluginContext.typeUnit get() = irBuiltIns.unitType
-internal inline val IrPluginContext.typeString get() = irBuiltIns.stringType
 
 internal fun IrPluginContext.ofClass(classId: ClassId) =
   referenceClass(classId) ?: error("Failed to resolve $classId")

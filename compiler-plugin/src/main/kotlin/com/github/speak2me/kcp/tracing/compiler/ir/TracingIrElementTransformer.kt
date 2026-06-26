@@ -25,6 +25,7 @@ import com.github.speak2me.kcp.tracing.compiler.internal.toClassId
 import com.github.speak2me.kcp.tracing.compiler.internal.typeAnyNullable
 import com.github.speak2me.kcp.tracing.compiler.internal.typeThrowable
 import com.github.speak2me.kcp.tracing.compiler.internal.typeUnit
+import org.jetbrains.kotlin.DeprecatedForRemovalCompilerApi
 import org.jetbrains.kotlin.backend.common.IrElementTransformerVoidWithContext
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.backend.common.lower.DeclarationIrBuilder
@@ -53,6 +54,7 @@ import org.jetbrains.kotlin.ir.expressions.IrReturn
 import org.jetbrains.kotlin.ir.expressions.addArgument
 import org.jetbrains.kotlin.ir.expressions.impl.IrTryImpl
 import org.jetbrains.kotlin.ir.symbols.UnsafeDuringIrConstructionAPI
+import org.jetbrains.kotlin.ir.util.dump
 import org.jetbrains.kotlin.ir.util.fileEntry
 import org.jetbrains.kotlin.ir.util.getAnnotationArgumentValue
 import org.jetbrains.kotlin.ir.util.hasAnnotation
@@ -71,7 +73,7 @@ internal class TracingIrElementTransformer(
   private val annotationFqName = FqName(annotation)
 
   // log
-  @OptIn(UnsafeDuringIrConstructionAPI::class)
+  @OptIn(UnsafeDuringIrConstructionAPI::class, DeprecatedForRemovalCompilerApi::class)
   private val funLog =
     pluginContext.ofCallable("kotlin.io.println".toCallableId()) {
       val parameters = owner.valueParameters
@@ -83,26 +85,27 @@ internal class TracingIrElementTransformer(
 
   private val funMarkNow =
     pluginContext.ofCallable(
-      CallableId(KOTLIN_TIME_FQNAME, FqName("TimeSource"), Name.identifier("markNow")),
 //      "kotlin.time.TimeSource.markNow".toCallableId()
+      CallableId(KOTLIN_TIME_FQNAME, FqName("TimeSource"), Name.identifier("markNow")),
     )
 
   private val funElapsedNow =
     pluginContext.ofCallable(
-      CallableId(KOTLIN_TIME_FQNAME, FqName("TimeMark"), Name.identifier("elapsedNow")),
 //      "kotlin.time.TimeMark.markNow".toCallableId()
+      CallableId(KOTLIN_TIME_FQNAME, FqName("TimeMark"), Name.identifier("elapsedNow")),
     )
 
   override fun visitFunctionNew(declaration: IrFunction): IrStatement {
     val body = declaration.body
     if (body != null && declaration.hasAnnotation(annotationFqName)) {
-//      logger.warning(declaration.dump())
+      logger.warning(declaration.dump())
       declaration.body = body.irTracing(declaration)
-//      logger.warning(declaration.dump())
+      logger.warning(declaration.dump())
     }
     return super.visitFunctionNew(declaration)
   }
 
+  @OptIn(UnsafeDuringIrConstructionAPI::class)
   private fun IrBody.irTracing(function: IrFunction): IrBlockBody {
     val showT = function.getAnnotationArgumentValue<Boolean>(annotationFqName, "thread") ?: true
 
@@ -167,6 +170,7 @@ internal class TracingIrElementTransformer(
     }
   }
 
+  @OptIn(UnsafeDuringIrConstructionAPI::class, DeprecatedForRemovalCompilerApi::class)
   private fun IrBuilderWithScope.irTracingExit(
     function: IrFunction,
     startTime: IrValueDeclaration,
@@ -196,6 +200,7 @@ internal class TracingIrElementTransformer(
     }
   }
 
+  @OptIn(UnsafeDuringIrConstructionAPI::class, DeprecatedForRemovalCompilerApi::class)
   private fun IrBuilderWithScope.irTracingEnter(
     function: IrFunction,
     thread: IrValueDeclaration? = null,

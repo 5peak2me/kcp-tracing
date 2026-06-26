@@ -14,8 +14,8 @@ internal class TracingGradlePlugin : KotlinCompilerPluginSupportPlugin {
     target.extensions.create("tracing", TracingExtension::class.java)
   }
 
-  override fun isApplicable(kotlinCompilation: KotlinCompilation<*>): Boolean = true
-//    kotlinCompilation.target.project.plugins.hasPlugin(TracingGradlePlugin::class.java)
+  override fun isApplicable(kotlinCompilation: KotlinCompilation<*>): Boolean =
+    kotlinCompilation.target.project.plugins.hasPlugin(TracingGradlePlugin::class.java)
 
   override fun getCompilerPluginId(): String = BuildConfig.COMPILER_PLUGIN_ID
 

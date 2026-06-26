@@ -33,7 +33,6 @@ internal class TracingCommandLineProcessor : CommandLineProcessor {
       "annotation" -> configuration.put(KEY_ANNOTATION, value)
       else -> error("Unexpected config option: '${option.optionName}'")
     }
-
   }
 
 }
