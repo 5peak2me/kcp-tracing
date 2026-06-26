@@ -8,6 +8,9 @@ on:
       - 'main'
     tags-ignore:
       - '**'
+    paths-ignore:
+      - 'assets/**'
+      - '**.md'
 
 env:
   GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dorg.gradle.daemon=false -Dkotlin.incremental=false"

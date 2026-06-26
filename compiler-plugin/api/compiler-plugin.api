@@ -2,3 +2,4 @@ public abstract class com/github/speak2me/kcp/tracing/gradle/TracingExtension {
 	public fun <init> (Lorg/gradle/api/model/ObjectFactory;)V
 	public final fun getAnnotation ()Lorg/gradle/api/provider/Property;
 }
+
