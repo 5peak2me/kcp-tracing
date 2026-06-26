@@ -1,4 +1,4 @@
-# kcp-tracing [![Version](https://img.shields.io/gradle-plugin-portal/v/com.github.5peak2me.kcp.tracing.svg?logo=gradle)](https://plugins.gradle.org/plugin/com.github.5peak2me.kcp.tracing)
+# kcp-tracing [![Version](https://img.shields.io/gradle-plugin-portal/v/io.github.5peak2me.kcp.tracing.svg?logo=gradle)](https://plugins.gradle.org/plugin/io.github.5peak2me.kcp.tracing)
 
 ![Build](https://github.com/5peak2me/kcp-tracing/workflows/Build/badge.svg)
 [![Kotlin](https://img.shields.io/badge/dynamic/toml?url=https://raw.githubusercontent.com/5peak2me/kcp-tracing/main/gradle/libs.versions.toml&query=%24.versions.kotlin&label=Kotlin&color=blue&logo=kotlin)](https://kotlinlang.org)
@@ -16,7 +16,7 @@ You can add this plugin to your top-level build script using the following confi
 
 ```groovy
 plugins {
-  id "io.github.5peak2me.kcp.tracing" version "0.0.1"
+  id "io.github.5peak2me.kcp.tracing" version "1.0.0"
 }
 ```
 or via the
@@ -31,7 +31,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "io.github.5peak2me.kcp.tracing:gradle-plugin:0.0.1"
+    classpath "io.github.5peak2me.kcp.tracing:gradle-plugin:1.0.0"
   }
 }
 ```

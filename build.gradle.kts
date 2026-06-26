@@ -7,6 +7,6 @@ plugins {
 }
 
 allprojects {
-  group = "com.github.5peak2me.kcp.tracing"
+  group = "io.github.5peak2me.kcp.tracing"
   version = "1.0.0"
 }

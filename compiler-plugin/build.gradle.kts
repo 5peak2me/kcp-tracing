@@ -32,11 +32,11 @@ gradlePlugin {
   vcsUrl.set("https://github.com/5peak2me/kcp-tracing")
   plugins {
     register("SimplePlugin") {
-      id = "io.github.5peak2me.kcp.tracing"
+      id = group.toString()
       displayName = "TracingGradlePlugin"
       description = "This is the description of TracingGradlePlugin"
       implementationClass = "com.github.speak2me.kcp.tracing.gradle.TracingGradlePlugin"
-      tags.set(listOf("kcp", "kotlin", "compiler", "plugin", "tracing"))
+      tags.set(listOf("kcp", "kotlin", "compiler", "tracing"))
 
       compatibility {
         features {

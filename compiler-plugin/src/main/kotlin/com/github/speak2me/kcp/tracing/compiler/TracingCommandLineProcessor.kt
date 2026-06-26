@@ -1,6 +1,6 @@
 package com.github.speak2me.kcp.tracing.compiler
 
-import com.github.speak2me.kcp.tracing.BuildConfig
+import io.github.speak2me.kcp.tracing.BuildConfig
 import org.jetbrains.kotlin.compiler.plugin.AbstractCliOption
 import org.jetbrains.kotlin.compiler.plugin.CliOption
 import org.jetbrains.kotlin.compiler.plugin.CommandLineProcessor

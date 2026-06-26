@@ -1,6 +1,6 @@
 package com.github.speak2me.kcp.tracing.gradle
 
-import com.github.speak2me.kcp.tracing.BuildConfig
+import io.github.speak2me.kcp.tracing.BuildConfig
 import org.gradle.api.Project
 import org.gradle.api.provider.Provider
 import org.jetbrains.kotlin.gradle.plugin.KotlinCompilation
