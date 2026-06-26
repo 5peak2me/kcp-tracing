@@ -1,4 +1,4 @@
-# kcp-tracing [![Version](https://img.shields.io/gradle-plugin-portal/v/io.github.5peak2me.kcp.tracing.svg?logo=gradle)](https://plugins.gradle.org/plugin/io.github.5peak2me.kcp.tracing)
+# kcp-tracing [![Version](https://img.shields.io/gradle-plugin-portal/v/com.github.5peak2me.kcp.tracing.svg?logo=gradle)](https://plugins.gradle.org/plugin/com.github.5peak2me.kcp.tracing)
 
 ![Build](https://github.com/5peak2me/kcp-tracing/workflows/Build/badge.svg)
 [![Kotlin](https://img.shields.io/badge/dynamic/toml?url=https://raw.githubusercontent.com/5peak2me/kcp-tracing/main/gradle/libs.versions.toml&query=%24.versions.kotlin&label=Kotlin&color=blue&logo=kotlin)](https://kotlinlang.org)
@@ -6,9 +6,7 @@
 [![Gradle](https://img.shields.io/badge/dynamic/regex?url=https://raw.githubusercontent.com/5peak2me/kcp-tracing/main/gradle/wrapper/gradle-wrapper.properties&search=gradle-([0-9.]%2B)-(?:bin|all).zip&replace=$1&label=Gradle&color=blue&logo=gradle)](https://gradle.org)
 [![Configuration Cache](https://img.shields.io/badge/Configuration%20Cache-supported-brightgreen.svg)](https://docs.gradle.org/current/userguide/configuration_cache.html)
 
-<!-- Plugin description -->
-This Fancy Kotlin Compiler Plugin is going to be your implementation of the brilliant ideas that you have.
-<!-- Plugin description end -->
+Add the plugin to each Kotlin, Android, or Kotlin Multiplatform module that should be traced.
 
 ## Installation
 
@@ -37,6 +35,38 @@ buildscript {
   }
 }
 ```
+
+By default, the Gradle plugin automatically adds the annotations dependency and uses:
+
+```kotlin
+import com.github.speak2me.kcp.tracing.annotations.Tracing
+```
+
+```kotlin
+@Tracing(parameter = true, `return` = true)
+fun loadUser(id: String): User = TODO()
+```
+
+If you want to use your own source-retained annotation, configure its fully qualified name:
+
+```kotlin
+tracing {
+  annotation = "com.example.Tracing"
+}
+```
+
+When `tracing.annotation` is set, the plugin passes that annotation name to the compiler plugin and does not add the built-in annotations dependency automatically.
+
+### Compatibility
+
+Since Kotlin compiler plugins are an unstable API, certain versions of Confundus only work with
+certain versions of Kotlin.
+
+| Kotlin         | Confundus |
+|----------------|-----------|
+| 2.0.0 - 2.2.21 | 1.0.0     |
+
+Kotlin versions newer than those listed may be supported but have not been tested.
 
 ---
 Plugin based on the [Kotlin Compiler Plugin Template][template].
