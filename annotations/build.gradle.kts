@@ -1,5 +1,6 @@
 @file:OptIn(ExperimentalWasmDsl::class)
 
+import com.vanniktech.maven.publish.KotlinMultiplatform
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
@@ -50,12 +51,8 @@ kotlin {
   applyDefaultHierarchyTemplate()
 }
 
-publishing {
-  publications {
-    register("release", MavenPublication::class) {
-      from(components["kotlin"])
-      group = project.group
-      version = project.version.toString()
-    }
-  }
+mavenPublishing {
+  publishToMavenCentral()
+  // sources publishing is always enabled by the Kotlin Multiplatform plugin
+  configure(KotlinMultiplatform(androidVariantsToPublish = listOf("release")))
 }
