@@ -1,12 +1,12 @@
+import org.gradle.plugin.compatibility.compatibility
+
 plugins {
-//  alias(libs.plugins.kotlin.jvm)
   `java-gradle-plugin`
   `java-test-fixtures`
   kotlin("jvm")
   kotlin("kapt")
   alias(libs.plugins.buildconfig)
   alias(libs.plugins.kotlin.binary.compatibility)
-  alias(libs.plugins.maven.publish)
   alias(libs.plugins.plugin.publish)
 }
 
@@ -37,6 +37,12 @@ gradlePlugin {
       description = "This is the description of TracingGradlePlugin"
       implementationClass = "com.github.speak2me.kcp.tracing.gradle.TracingGradlePlugin"
       tags.set(listOf("kcp", "kotlin", "compiler", "plugin", "tracing"))
+
+      compatibility {
+        features {
+          configurationCache = true
+        }
+      }
     }
   }
 }

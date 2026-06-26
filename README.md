@@ -18,7 +18,7 @@ You can add this plugin to your top-level build script using the following confi
 
 ```groovy
 plugins {
-  id "io.github.5peak2me.kcp.tracing" version "$version"
+  id "io.github.5peak2me.kcp.tracing" version "0.0.1"
 }
 ```
 or via the
@@ -33,7 +33,7 @@ buildscript {
   }
 
   dependencies {
-    classpath "io.github.5peak2me.kcp.tracing:gradle-plugin:$version"
+    classpath "io.github.5peak2me.kcp.tracing:gradle-plugin:0.0.1"
   }
 }
 ```

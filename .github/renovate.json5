@@ -21,6 +21,20 @@
       depNameTemplate: 'java',
       extractVersionTemplate: '^(?<version>\\d+)',
     },
+    {
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^README\\.md$/',
+      ],
+      matchStrings: [
+        'id\\s+"(?<depName>io\\.github\\.5peak2me\\.kcp\\.tracing)"\\s+version\\s+"(?<currentValue>[^"]+)"',
+        'classpath\\s+"(?<depName>io\\.github\\.5peak2me\\.kcp\\.tracing):gradle-plugin:(?<currentValue>[^"]+)"',
+      ],
+      datasourceTemplate: 'maven',
+      packageNameTemplate: '{{{depName}}}:{{{depName}}}.gradle.plugin',
+      registryUrlTemplate: 'https://plugins.gradle.org/m2/',
+      versioningTemplate: 'maven',
+    },
   ],
   forkProcessing: 'enabled',
   packageRules: [
