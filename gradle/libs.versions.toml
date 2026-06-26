@@ -43,7 +43,7 @@ kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test" }
 
 test-kotlin-compiler = "com.github.tschuchortdev:kotlin-compile-testing:1.6.0"
-test-truth = "com.google.truth:truth:1.4.4"
+test-truth = "com.google.truth:truth:1.4.5"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
