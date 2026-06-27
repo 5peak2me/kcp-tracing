@@ -53,6 +53,32 @@ kotlin {
 
 mavenPublishing {
   publishToMavenCentral()
-  // sources publishing is always enabled by the Kotlin Multiplatform plugin
+  signAllPublications()
   configure(KotlinMultiplatform(androidVariantsToPublish = listOf("release")))
+
+  pom {
+    name.set("annotations")
+    description.set("The default annotations dependency and uses")
+    inceptionYear.set("2025")
+    url.set("https://github.com/5peak2me/kcp-tracing/")
+    licenses {
+      license {
+        name.set("The Apache License, Version 2.0")
+        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+        distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+      }
+    }
+    developers {
+      developer {
+        id.set("5pea2me")
+        name.set("J!nl!n")
+        url.set("https://github.com/5peak2me/")
+      }
+    }
+    scm {
+      url.set("https://github.com/5peak2me/kcp-tracing")
+      connection.set("scm:git:git://github.com/5peak2me/kcp-tracing.git")
+      developerConnection.set("scm:git:ssh://git@github.com/5peak2me/kcp-tracing.git")
+    }
+  }
 }
