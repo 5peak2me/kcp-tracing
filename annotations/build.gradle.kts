@@ -9,6 +9,9 @@ plugins {
   alias(libs.plugins.maven.publish)
 }
 
+group = "io.github.5peak2me.kcp.tracing"
+version = "1.0.0"
+
 kotlin {
   jvmToolchain(libs.versions.jdkVersion.get().toInt())
 

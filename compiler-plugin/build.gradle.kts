@@ -10,6 +10,9 @@ plugins {
   alias(libs.plugins.plugin.publish)
 }
 
+group = "io.github.5peak2me.kcp.tracing"
+version = "1.0.0"
+
 buildConfig {
   packageName(group.toString().replace("5peak2me", "speak2me"))
 
