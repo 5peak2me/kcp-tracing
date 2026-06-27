@@ -56,6 +56,23 @@ fun loadUser(id: String): User = TODO()
 If you want to use your own source-retained annotation, configure its fully qualified name:
 
 ```kotlin
+package com.example
+
+@SinceKotlin("1.9")
+@Target(
+  AnnotationTarget.CLASS,
+  AnnotationTarget.CONSTRUCTOR,
+  AnnotationTarget.FUNCTION,
+  AnnotationTarget.EXPRESSION,
+  AnnotationTarget.FILE,
+)
+@Retention(AnnotationRetention.SOURCE)
+public annotation class Tracing(
+  val parameter: Boolean = false,
+  val `return`: Boolean = false,
+  val thread: Boolean = true,
+)
+
 tracing {
   annotation = "com.example.Tracing"
 }
