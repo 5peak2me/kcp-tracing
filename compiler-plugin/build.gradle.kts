@@ -37,7 +37,7 @@ gradlePlugin {
     register("SimplePlugin") {
       id = group.toString()
       displayName = "TracingGradlePlugin"
-      description = "This is the description of TracingGradlePlugin"
+      description = "A Kotlin compiler plugin that instruments annotated functions with tracing logs for entry, exit, duration, thread, parameters, and return values."
       implementationClass = "com.github.speak2me.kcp.tracing.gradle.TracingGradlePlugin"
       tags.set(listOf("kcp", "kotlin", "compiler", "tracing"))
 
